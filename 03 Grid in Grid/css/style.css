@@ -1,0 +1,157 @@
+:root{
+    --main-color: #123456;
+}
+
+*{
+    margin:0;
+    padding:0;
+}
+
+header, .left-sidebar, .cards-container,
+.right-sidebar, footer{
+    border: 5px solid green;
+}
+
+header{
+    grid-area: hd;
+}
+
+.left-sidebar {
+    grid-area: ls;
+}
+.cards-container {
+    grid-area: cc;
+}
+.right-sidebar {
+    grid-area: rs;
+}
+footer{
+    grid-area: ft;
+}
+
+body{
+    display:grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-rows: 50px minmax(200px, 1fr) 50px;
+    gap:10px;
+    grid-template-areas: 
+    "hd hd hd"
+    "ls cc rs"
+    "ft ft ft";
+}
+
+.cards-container {
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap:10px;
+    padding:10px;
+}
+
+.card{
+    padding:10px;
+    border:5px solid var(--main-color);
+    display:flex;
+    flex-direction: column;
+}
+
+.card a{
+    margin-top: auto;
+}
+
+
+/*  this mediaquery is for an tablet */
+@media (max-width:800px) {
+    
+    body{
+        display:grid;
+        grid-template-columns: 1fr 5fr;
+        grid-template-rows: 50px minmax(200px, 1fr) 50px;
+        gap:10px;
+        grid-template-areas: 
+        "hd hd"
+        "ls cc"
+        "ft ft";
+    }
+
+    .right-sidebar{
+        display:none;
+    }
+    
+}
+
+/*  this mediaquery is for an mobile */
+@media (max-width:500px) {
+    
+    body{
+        display:grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 50px 50px minmax(200px, 1fr) 50px;
+        gap:10px;
+        grid-template-areas: 
+        "hd"
+        "ls"
+        "cc"
+        "rs"
+        "ft";
+    }
+
+    .right-sidebar{
+        display:block;
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+
+.cards-container{
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap:10px;
+    padding:10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card{
+    border: 3px solid var(--main-color);
+    display:flex;
+    flex-direction: column;
+    border-radius: 4px;
+
+}
+
+h2{
+    background: var(--main-color);
+    color:white;
+    padding:10px;
+}
+
+button{
+    background: var(--main-color);
+    color:white;
+    margin-top:auto;
+    border:none;
+    padding:10px;
+    font-size: 19pt;
+
+}
+
+p{
+    margin:10px;
+}
+
+
+img{
+    width:50px;
+} */
